@@ -1,7 +1,25 @@
+// import marketBg from '../assets/marketBg.jpg'
+import videoBg from '../assets/videoBG.mp4'
+//import { Outlet, Link} from 'react-router-dom';
+import './HomePage.css';
+
 export default function HomePage() {
     return (
       <>
-        <p> HomePage</p>
+        <div className='main'>
+        <video src={videoBg} autoPlay loop muted />
+        {/* <img src={marketBg} alt= "Market background"/> */}
+        <div className='content'>
+          <h1 id="title">FARMER-TO-TABLE</h1>
+          <p id="description">Welcome to Farmer-to-Table, where every purchase connects you directly to our country's farmers, bringing the freshest product straight to your doorstep.</p>
+          <button id="getStarted"> Get Started</button>
+        </div>
+
+    
+        </div>
+        {/* <Outlet /> */}
+        
+        
       </>
     )
   }
