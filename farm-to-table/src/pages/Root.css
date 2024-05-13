@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+  }
+  nav {
+    background: linear-gradient(to right, #476360, white);
+    
+}
+  
+  nav ul li {
+    position: relative;
+    z-index: 2;
+    padding: 25px 20px; 
+    text-decoration: none;
+
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    
+  }
+
+  .rightSide {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 2%;
+  }
+   li{
+    font-size: 20px;
+   }
+
+  .signInButton{
+    border-radius: 10px;
+    background-color: #4CAF50; 
+    display: inline-block;
+    border-color: #4CAF50;
+    padding: 10px 20px; 
+    color: white;
+    text-decoration: none;
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+  .signInButton > * {
+    color: white;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+  }
