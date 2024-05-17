@@ -10,7 +10,7 @@ import About from './pages/About.js';
 import Shop from './pages/Shop.js';
 
 const router = createBrowserRouter([
-  { path: '/', element: <Root />, children: [
+   { path: '/', element: <Root />, children: [
     { path: '/', element: <HomePage /> },
     { path: 'sign-in', element: <SignIn/> },
     { path: 'about', element: <About/>},

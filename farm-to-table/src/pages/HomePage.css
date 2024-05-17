@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@800&display=swap');
+.main{
+    /* position: relative; */
+    width: 100vw;
+    height: 100vh;
+    
+  }
+  video{
+ 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  img{
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    font-family: "Newsreader", serif;
+  }
+  #title {
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+
+    padding: 1%;
+    font-size:70px;
+  }
+  #description{
+    width: 50vw;
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: italic;
+    padding-bottom: 2.5%;
+    font-size: 20px;
+  }
+  #getStarted{
+    text-decoration: none;
+    font-family: "Newsreader", serif; 
+    border-radius: 10px;
+    background-color: #227e67; 
+    display: inline-block;
+    border-color:#227e67;
+    padding: 15px 30px; 
+    font-size: 18px;
+    color: white;
+  }
+
+
