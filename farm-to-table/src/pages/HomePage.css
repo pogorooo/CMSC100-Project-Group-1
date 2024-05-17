@@ -43,6 +43,7 @@
     font-size:70px;
   }
   #description{
+    width: 50vw;
     font-family: "Newsreader", serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -51,12 +52,12 @@
     font-size: 20px;
   }
   #getStarted{
-    font-family: "Newsreader", serif;
-   
+    text-decoration: none;
+    font-family: "Newsreader", serif; 
     border-radius: 10px;
-    background-color: #4CAF50; 
+    background-color: #227e67; 
     display: inline-block;
-    border-color: #4CAF50;
+    border-color:#227e67;
     padding: 15px 30px; 
     font-size: 18px;
     color: white;

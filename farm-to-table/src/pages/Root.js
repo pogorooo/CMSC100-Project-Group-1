@@ -5,7 +5,7 @@ export default function Root() {
       <>
         <nav>
           <ul>
-            <li><Link to={`/`} >Farm-to-table</Link></li>   
+            <li className='title'><Link to={`/`} >Farm-to-table</Link></li>   
             <div className='rightSide'>  
             <li> <Link to ={`/about`}> About</Link></li>
             <li> <button className='signInButton'>

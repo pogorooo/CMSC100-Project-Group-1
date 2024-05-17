@@ -6,20 +6,20 @@ ul {
     align-items: center; 
   }
   nav {
-    background: linear-gradient(to right, #4CAF50, white);
+    background: linear-gradient(to right, #227e67, white);
     
-}
-  
+} 
   nav ul li {
     position: relative;
     z-index: 2;
     padding: 25px 20px; 
     text-decoration: none;
 
-    font-family: "Newsreader", serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* font-optical-sizing: auto;
+    font-weight: 100; */
+    font-style:normal;
+    letter-spacing: 1px;
     
   }
 
@@ -32,16 +32,18 @@ ul {
    li{
     font-size: 20px;
    }
-
+   .title{
+    padding-left: 3%;
+   }
   .signInButton{
     border-radius: 10px;
-    background-color: #4CAF50; 
+    background-color: #227e67; 
     display: inline-block;
-    border-color: #4CAF50;
+    border-color: #227e67;
     padding: 10px 20px; 
     color: white;
     text-decoration: none;
-    font-family: "Newsreader", serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
