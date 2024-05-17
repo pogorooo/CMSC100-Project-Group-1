@@ -8,14 +8,15 @@ import SignIn from './pages/SignIn';
 import HomePage from './pages/Home';
 import About from './pages/About.js';
 import Shop from './pages/Shop.js';
+import Cart from './pages/Cart.js';
 
 const router = createBrowserRouter([
    { path: '/', element: <Root />, children: [
     { path: '/', element: <HomePage /> },
     { path: 'sign-in', element: <SignIn/> },
     { path: 'about', element: <About/>},
-    {path: 'shop', element: <Shop/>},
-    {}
+    { path: 'shop', element: <Shop/>},
+    { path: 'cart', element: <Cart/>}
   ]}
 ])
 
