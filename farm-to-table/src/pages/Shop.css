@@ -1,0 +1,79 @@
+.products{
+    display: flex;
+    padding: 2vh; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.items {
+    width: 200px;
+    height: 250px;
+    border: 1px  #bdbbbb;
+    border-radius: 3vb;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #dbebe0;
+    padding: 10px;
+    margin: 3vh;
+    margin-top: 5vh;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+
+.image-container {
+    width: 100%;
+    height: 50%;
+    position: relative;
+  }
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+}
+
+.item-details {
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.item-button {
+    font-family: "MoskauGrotesk-Medium";
+    font-weight: lighter;
+    background-color: #227e67;
+    color: white;
+    border-color: aliceblue;
+    border-radius: 8px;
+    padding: 1vb;
+    width: 100px;
+    height: 35px;
+    margin-top: 1vh; 
+}
+
+.item-price{
+    font-family: "MoskauGrotesk-Medium";
+    font-weight: lighter;
+    margin: 1vh 0;
+}
+
+.items:hover {
+    width: 220px;
+    height: 280px;
+    border: 1px  #bdbbbb;
+    border-radius: 3vb;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #dbebe0;
+    padding: 10px;
+    margin: 3vh;
+    margin-top: 5vh;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+
+.image-container:hover .item-image{
+    transform: scale(1.2); 
+}
+
+
+
