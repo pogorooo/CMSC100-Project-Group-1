@@ -57,7 +57,7 @@
 }
 
 .items:hover {
-    width: 220px;
+    /* width: 220px;
     height: 280px;
     border: 1px  #bdbbbb;
     border-radius: 3vb;
@@ -68,7 +68,8 @@
     margin-top: 5vh;
     flex-direction: column;
     justify-content: space-between;
-    display: flex;
+    display: flex; */
+    transform: scale(1.1); 
 }
 
 .image-container:hover .item-image{
