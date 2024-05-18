@@ -20,7 +20,7 @@ import tomato from '../assets/tomato.png';
 import eggplant from '../assets/eggplant.png'
 import cabbage from '../assets/cabbage.png';
 
-
+import {useOutletContext } from "react-router-dom";
 const products = [
   { product_name: 'rice', type: 1, price: 50, product_id: 1, imgUrl: rice },
   { product_name: 'corn', type: 1, price: 80, product_id: 2, imgUrl: corn },
@@ -37,6 +37,29 @@ const products = [
 ];
 
 export default function Shop() {
+  const { setCartItems} = useOutletContext();
+
+  //add the new item to the cart
+  function addItem(product) {
+    setCartItems((prevItems) => {
+      // Check if the product already exists in the cart
+      const existingItem = prevItems.find((item) => item.product.product_id === product.product_id);
+      if (existingItem) {
+        // If the product exists, increment its quantity and update its price in the cart
+        return prevItems.map((item) =>
+          item.product.product_id === product.product_id
+            ? { ...item, quantity: item.quantity + 1 , item_price: (item.quantity +1) * item.product.price }
+            : item
+        );
+      } else {
+        // If the product doesn't exist
+        const newItem = { product, quantity: 1, imgUrl: product.imgUrl, item_price: product.price};
+        console.log("New item:", newItem);
+        return [...prevItems, newItem];
+      }
+    });
+  }
+  
   const slides = [
     { img: img1 },
     { img: img2 },
@@ -66,7 +89,7 @@ export default function Shop() {
             <div className="item-details">
               <div>{product.product_name}</div>
               <h4 className='item-price'> P{product.price}</h4> {/*to show the price of the item/product */}  
-              <button className= 'item-button'>Add to Cart</button> {/*created the button to add to cart and  calls for the addToCart function when clicked */}
+              <button className= 'item-button' onClick = {()=>addItem(product)}>Add to Cart</button> {/*created the button to add to cart and  calls for the addToCart function when clicked */}
             </div>               
           </div>   
         }

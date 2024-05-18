@@ -4,6 +4,7 @@ import './Root.css'
 export default function Root() {
 
   const [isCustomerView, setIsCustomerView] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
     return (
       <>
@@ -23,6 +24,11 @@ export default function Root() {
                   <Link  to={`/cart`}>Shopping Cart</Link>
                 </li>
               )}
+              {isCustomerView && (
+                <li>
+                  <Link to={`/orders`}> Orders</Link>
+                </li>
+              )}
 
               <li> 
                 <button className='signInButton'>
@@ -34,7 +40,7 @@ export default function Root() {
           </ul>
         </nav>
         
-        <Outlet context={{ setIsCustomerView }}/>
+        <Outlet context={{ setIsCustomerView, setCartItems, cartItems }}/>
       </>
     )
   }
