@@ -1,5 +1,7 @@
 import { Outlet, Link } from 'react-router-dom';
+
 import{useState} from 'react';
+
 import './Root.css'
 export default function Root() {
 
@@ -10,6 +12,7 @@ export default function Root() {
       <>
         <nav>
           <ul>
+
             <li className='title'><Link to={`/`} >Farm-to-table</Link></li>   
             <div className='rightSide'>  
               <li> <Link to ={`/about`}> About</Link></li>
@@ -35,6 +38,7 @@ export default function Root() {
                   <Link to = {`/sign-in`}> Sign In</Link>
                 </button>
               </li>
+
             </div>
             <link></link>
           </ul>
