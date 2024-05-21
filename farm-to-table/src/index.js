@@ -9,15 +9,21 @@ import SignUp from './pages/SignUp';
 import HomePage from './pages/Home';
 import About from './pages/About.js';
 import Shop from './pages/Shop.js';
+import Cart from './pages/Cart.js';
+import Order from './pages/Order.js';
 
 const router = createBrowserRouter([
-  { path: '/', element: <Root />, children: [
+   { path: '/', element: <Root />, children: [
     { path: '/', element: <HomePage /> },
     { path: 'sign-in', element: <SignIn/> },
     { path: 'about', element: <About/>},
     { path: 'shop', element: <Shop/>},
-    { path: 'sign-up', element: <SignUp/> },
-    {}
+//     { path: 'sign-up', element: <SignUp/> },
+//     {}
+// =======
+    { path: 'cart', element: <Cart/>},
+    { path: 'orders', element: <Order/>}
+
   ]}
 ])
 
