@@ -1,12 +1,14 @@
 import { Outlet, Link } from 'react-router-dom';
-
 import{useState} from 'react';
-
 import './Root.css'
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 export default function Root() {
 
   const [isCustomerView, setIsCustomerView] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const[orders, setOrders] = useState([]);
 
     return (
       <>
@@ -19,17 +21,23 @@ export default function Root() {
               {/* to show the shop and shopping cart only when the user signed in (customer view) */}
               {isCustomerView && (
                 <li>
-                  <Link to={`/shop`}> Shop</Link>
+                  <Link to={`/shop`}> 
+                  <StorefrontIcon/>
+                  </Link>
                 </li>
               )}
               {isCustomerView && ( 
                 <li>
-                  <Link  to={`/cart`}>Shopping Cart</Link>
+                  <Link  to={`/cart`}>
+                    <ShoppingCartOutlinedIcon/>
+                  </Link>
                 </li>
               )}
               {isCustomerView && (
                 <li>
-                  <Link to={`/orders`}> Orders</Link>
+                  <Link to={`/orders`}> 
+                  <ShoppingBagOutlinedIcon/>
+                  </Link>
                 </li>
               )}
 
@@ -44,7 +52,7 @@ export default function Root() {
           </ul>
         </nav>
         
-        <Outlet context={{ setIsCustomerView, setCartItems, cartItems }}/>
+        <Outlet context={{ setIsCustomerView, setCartItems, cartItems, setOrders, orders }}/>
       </>
     )
   }
