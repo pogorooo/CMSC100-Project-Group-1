@@ -1,11 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 import './signInUpPages.css';
 import veg from '../assets/vegetable04.png';
 
 export default function SignIn() {
+  const { setIsCustomerView } = useOutletContext();
+
+  function handleCustomerView  () {
+    setIsCustomerView(true);
+  };
     return (
       <>
+
         <div class = "bg">
           <br></br>
           <div class = "main-box">
@@ -24,9 +30,10 @@ export default function SignIn() {
             </div>
           </div>
           <p>Sign in Page</p>
-          <button><Link to= {`/shop`}> Customer View</Link>  </button>
-          <button><Link to= {`/merchant-page`}> Admin View</Link>  </button>
+          <button><Link to= {`/shop`} onClick={handleCustomerView}> Customer View</Link>  </button>
+          <button><Link to= {``}> Admin View</Link>  </button>
         </div>
+
       </>
 
       
