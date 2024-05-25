@@ -25,7 +25,7 @@ export default function SignIn() {
           </div>
           <p>Sign in Page</p>
           <button><Link to= {`/shop`}> Customer View</Link>  </button>
-          <button><Link to= {``}> Admin View</Link>  </button>
+          <button><Link to= {`/merchant-page`}> Admin View</Link>  </button>
         </div>
       </>
 

@@ -1,0 +1,40 @@
+
+.dashboard {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    max-width: 100%;
+    min-height: 400px;
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    border-radius: 20px;
+  }
+
+  .left-sidebar {
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(to right, #476360, white);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-body {
+    background-color: #f2f3f7;
+    width: 100%;
+    padding: 8px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .confirm-orders-body{
+    display: flex;
+}
+  
+  .product-listings-body{
+    display: flex;
+}
+
+  .sales-reports-body{
+    display: flex;
+}
+
