@@ -1,21 +1,73 @@
-import { Outlet, Link } from 'react-router-dom';
+import{useState} from 'react';
 
 import './merchantPages.css';
+import ProductListings from './ProductListings';
+import ConfirmOrder from './ConfirmOrder';
+import SalesReport from './SalesReport';
+import ViewRegisteredUsers from './ViewRegisteredUsers';
 
 export default function MerchantPage() {
+
+  const [showViewRegisteredUsers, setShowViewRegisteredUsers] = useState(true);
+  const [showProductListings, setShowProductListings] = useState(false);
+  const [showConfirmOrder, setShowConfirmOrder] = useState(false);
+  const [showSalesReport, setSalesReport] = useState(false);
+
+  function handleShowViewRegisteredUsers  () {
+    setShowViewRegisteredUsers(true);
+    setShowProductListings(false);
+    setShowConfirmOrder(false);
+    setSalesReport(false);
+  };
+
+  function handleShowProductListings  () {
+    setShowViewRegisteredUsers(false);
+    setShowProductListings(true);
+    setShowConfirmOrder(false);
+    setSalesReport(false);
+  };
+
+  function handleShowConfirmOrder  () {
+    setShowViewRegisteredUsers(false);
+    setShowProductListings(false);
+    setShowConfirmOrder(true);
+    setSalesReport(false);
+    
+  };
+
+  function handleShowSalesReport  () {
+    setShowViewRegisteredUsers(false);
+    setShowProductListings(false);
+    setShowConfirmOrder(false);
+    setSalesReport(true);
+  };
+
     return (
       <>
+        <br></br>
         <div class = "dashboard">
           <div class = "left-sidebar">
-            <p class ="sidebar-element">View Registered Users</p>
-            <p class ="sidebar-element">Product Listings</p>
-            <p class ="sidebar-element">Confirm Order</p>
-            <p class ="sidebar-element">Sales Report</p>
+            <a href="#" class ="sidebar-element" onClick={handleShowViewRegisteredUsers}>View Registered Users</a>
+            <a href="#" class ="sidebar-element" onClick={handleShowProductListings}>Product Listings</a>
+            <a href="#" class ="sidebar-element" onClick={handleShowConfirmOrder}>Confirm Order</a>
+            <a href="#" class ="sidebar-element" onClick={handleShowSalesReport}>Sales Report</a>
           </div>
           <div class = "right-body">
-            <Outlet />
+            {showViewRegisteredUsers && (
+              <ViewRegisteredUsers />
+            )}
+            {showProductListings && (
+              <ProductListings />
+            )}
+            {showConfirmOrder && ( 
+              <ConfirmOrder />
+            )}
+            {showSalesReport && (
+              <SalesReport />
+            )}
           </div>
         </div>
+        <br></br>
       </>
 
       
