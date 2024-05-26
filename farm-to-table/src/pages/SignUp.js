@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import './signInUpPages.css';
-import veg from '../assets/vegetable04.png';
+import mp from '../assets/marketplace.jpg';
 
 export default function SignUp() {
     return (
@@ -11,7 +11,7 @@ export default function SignUp() {
           <div class="main-box">
             <div class = "redirect">
               <p class="title">Already A Member?</p>
-              <img src={veg}/>
+              <img class = "mp" src={mp}/>
               <button className="page-button"><Link to= {`/sign-in`}>Sign in</Link></button>
             </div>
             <div class = "sign-in-up">

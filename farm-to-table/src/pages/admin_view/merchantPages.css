@@ -12,16 +12,51 @@
 
 .left-sidebar {
     width: 200px;
-    height: 100%;
-    background: linear-gradient(to right, #476360, white);
+    min-height: 600px;
+    background-color: #476360;
+  }
+
+.sidebar-elements{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: white;
+    padding: 0 10px;
+  }
+
+.right-body {
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
 
-.right-body {
-    background-color: #f2f3f7;
+.module-body {
+  width: 100%;
+  padding: 8px 30px;
+}
+
+.title-bar{
+    height: 75px;
     width: 100%;
-    padding: 8px 30px;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    padding: 15px 30px;
   }
+
+.confirm-btn{
+    border: 2px solid black;
+    border-color: #476360;
+    color: #476360;
+    border-radius: 25px;
+    background-color: white;
+    padding: 7px 14px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  
+.confirm-btn:hover {
+    background-color: #476360;
+    color: white;
+  }
+  

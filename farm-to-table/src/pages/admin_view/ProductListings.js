@@ -17,8 +17,10 @@ export default function ProductListings(){
 
     return (
         <>
-            <h3>Product Listings</h3>
-            <div class = "product-listings-body">
+            <div class = "title-bar">
+                <h3 class="mb-8 text-3xl font-bold">Product Listings</h3>
+            </div>
+            <div class = "module-body">
                 <div class="flex flex-col overflow-x-auto">
                 <div class="sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">

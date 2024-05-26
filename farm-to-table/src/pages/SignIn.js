@@ -1,7 +1,7 @@
 import { Link, useOutletContext } from "react-router-dom";
 
 import './signInUpPages.css';
-import veg from '../assets/vegetable04.png';
+import mp from '../assets/marketplace.jpg';
 
 export default function SignIn() {
   const { setIsCustomerView } = useOutletContext();
@@ -26,7 +26,7 @@ export default function SignIn() {
             </div>
             <div class = "redirect">
               <p class="title">New Here?</p>
-              <img src={veg}/>
+              <img class = "mp" src={mp}/>
               <button className="page-button"><Link to= {`/sign-up`}>Sign up</Link></button>
             </div>
           </div>

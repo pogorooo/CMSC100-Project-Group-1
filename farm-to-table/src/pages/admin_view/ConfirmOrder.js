@@ -7,8 +7,10 @@ export default function ConfirmOrder(){
 
     return (
         <>
-            <h3>Confirm Order</h3>
-            <div class = "confirm-order-body">
+            <div class = "title-bar">
+                <h3 class="mb-8 text-3xl font-bold">Confirm Order</h3>
+            </div>
+            <div class = "module-body">
                 <div class="flex flex-col overflow-x-auto">
                 <div class="sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -23,6 +25,7 @@ export default function ConfirmOrder(){
                             <th scope="col" class="px-6 py-4">Email</th>
                             <th scope="col" class="px-6 py-4">Date ordered</th>
                             <th scope="col" class="px-6 py-4">Time</th>
+                            <th scope="col" class="px-6 py-4"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,7 +39,7 @@ export default function ConfirmOrder(){
                                     <td class="whitespace-nowrap px-6 py-4">{order.email}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{order.date}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{order.time}</td>
-                                    <td class="whitespace-nowrap px-6 py-4"><button>Confirm Order</button></td>
+                                    <td class="whitespace-nowrap px-6 py-4"><button class = "confirm-btn">Confirm Order</button></td>
                                 </tr> })
                         }
                     </tbody>
