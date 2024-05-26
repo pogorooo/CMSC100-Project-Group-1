@@ -48,10 +48,10 @@ export default function MerchantPage() {
         <div class = "dashboard">
           <div class = "left-sidebar">
             <div class ="sidebar-elements">
-              <a href="#" onClick={handleShowViewRegisteredUsers}>View Registered Users</a>
-              <a href="#" onClick={handleShowProductListings}>Product Listings</a>
-              <a href="#" onClick={handleShowConfirmOrder}>Confirm Order</a>
-              <a href="#" onClick={handleShowSalesReport}>Sales Report</a>
+              <button onClick={handleShowViewRegisteredUsers}>View Registered Users</button>
+              <button onClick={handleShowProductListings}>Product Listings</button>
+              <button onClick={handleShowConfirmOrder}>Confirm Order</button>
+              <button onClick={handleShowSalesReport}>Sales Report</button>
             </div>
           </div>
           <div class = "right-body">
