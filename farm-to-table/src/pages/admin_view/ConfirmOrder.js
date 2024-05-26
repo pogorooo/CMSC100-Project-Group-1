@@ -10,6 +10,7 @@ export default function ConfirmOrder(){
             <div class = "title-bar">
                 <h3 class="mb-8 text-3xl font-bold">Confirm Order</h3>
             </div>
+            <br></br>
             <div class = "module-body">
                 <div class="flex flex-col overflow-x-auto">
                 <div class="sm:-mx-6 lg:-mx-8">
@@ -49,6 +50,7 @@ export default function ConfirmOrder(){
                 </div>
                 </div>
             </div>
+            <br></br>
         </>
     )
 }

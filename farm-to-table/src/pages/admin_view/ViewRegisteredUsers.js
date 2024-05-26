@@ -14,6 +14,7 @@ export default function ViewRegisteredUsers(){
             <div class = "title-bar">
                 <h3 class="mb-8 text-3xl font-bold">Registered Users</h3>
             </div>
+            <br></br>
             <div class = "module-body">
                 <div class = "useraccount-list">
                     <div class="flex flex-col overflow-x-auto">
@@ -52,6 +53,7 @@ export default function ViewRegisteredUsers(){
                 </div>
                 <div class = "useraccount-report"></div>
             </div>
+            <br></br>
         </>
     )
 }

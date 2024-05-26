@@ -51,7 +51,7 @@ export default function MerchantPage() {
               <button onClick={handleShowViewRegisteredUsers}>View Registered Users</button>
               <button onClick={handleShowProductListings}>Product Listings</button>
               <button onClick={handleShowConfirmOrder}>Confirm Order</button>
-              <button onClick={handleShowSalesReport}>Sales Report</button>
+              <button  onClick={handleShowSalesReport}>Sales Report</button>
             </div>
           </div>
           <div class = "right-body">
@@ -71,7 +71,5 @@ export default function MerchantPage() {
         </div>
         <br></br>
       </>
-
-      
     )
   }

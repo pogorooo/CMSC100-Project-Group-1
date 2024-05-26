@@ -20,6 +20,24 @@ export default function ProductListings(){
             <div class = "title-bar">
                 <h3 class="mb-8 text-3xl font-bold">Product Listings</h3>
             </div>
+            <div class = "dropdown-bar">
+                <div class="dropdown">
+                    <button class="dropbtn">Sort by</button>
+                    <div class="dropdown-content">
+                        <button>Ascending</button>
+                        <button>Descending</button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                <button class="dropbtn">Sort by</button>
+                    <div class="dropdown-content">
+                        <button>Name</button>
+                        <button>Type</button>
+                        <button>Price</button>
+                        <button>Quantity</button>
+                    </div>
+                </div>
+            </div>
             <div class = "module-body">
                 <div class="flex flex-col overflow-x-auto">
                 <div class="sm:-mx-6 lg:-mx-8">
