@@ -1,7 +1,7 @@
 import { Link, useOutletContext } from "react-router-dom";
 
 import './signInUpPages.css';
-import veg from '../assets/vegetable04.png';
+import mp from '../assets/marketplace.jpg';
 
 export default function SignIn() {
   const { setIsCustomerView } = useOutletContext();
@@ -9,6 +9,7 @@ export default function SignIn() {
   function handleCustomerView  () {
     setIsCustomerView(true);
   };
+
     return (
       <>
 
@@ -25,13 +26,13 @@ export default function SignIn() {
             </div>
             <div class = "redirect">
               <p class="title">New Here?</p>
-              <img src={veg}/>
+              <img class = "mp" src={mp}/>
               <button className="page-button"><Link to= {`/sign-up`}>Sign up</Link></button>
             </div>
           </div>
           <p>Sign in Page</p>
           <button><Link to= {`/shop`} onClick={handleCustomerView}> Customer View</Link>  </button>
-          <button><Link to= {``}> Admin View</Link>  </button>
+          <button><Link to= {`/merchant-page`}> Admin View</Link>  </button>
         </div>
 
       </>
