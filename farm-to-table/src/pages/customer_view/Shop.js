@@ -1,24 +1,24 @@
 //imports of the images of the slideshow 
-import img1 from '../assets/img1.jpg';
-import img2 from '../assets/img2.jpg';
-import img3 from '../assets/img3.jpg';
-import img4 from '../assets/img4.jpg';
+import img1 from '../../assets/img1.jpg';
+import img2 from '../../assets/img2.jpg';
+import img3 from '../../assets/img3.jpg';
+import img4 from '../../assets/img4.jpg';
 import ImageSlider from './ImageSlider';
 import './Shop.css';
 
 //imports of the images of the products
-import chicken from '../assets/chicken.png';
-import egg from '../assets/egg.png';
-import turkey from '../assets/turkey.png';
-import quailEgg from '../assets/quail-egg.png';
-import rice from '../assets/rice.png';
-import corn from '../assets/corn.png'
-import onion from '../assets/onion.png';
-import garlic from '../assets/garlic.png';
-import potato from '../assets/potato.png';
-import tomato from '../assets/tomato.png';
-import eggplant from '../assets/eggplant.png'
-import cabbage from '../assets/cabbage.png';
+import chicken from '../../assets/chicken.png';
+import egg from '../../assets/egg.png';
+import turkey from '../../assets/turkey.png';
+import quailEgg from '../../assets/quail-egg.png';
+import rice from '../../assets/rice.png';
+import corn from '../../assets/corn.png'
+import onion from '../../assets/onion.png';
+import garlic from '../../assets/garlic.png';
+import potato from '../../assets/potato.png';
+import tomato from '../../assets/tomato.png';
+import eggplant from '../../assets/eggplant.png'
+import cabbage from '../../assets/cabbage.png';
 
 import {useOutletContext } from "react-router-dom";
 const products = [

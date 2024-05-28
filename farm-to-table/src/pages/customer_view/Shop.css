@@ -35,6 +35,7 @@
     text-align: center;
     flex-grow: 1;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10px;
 }
 
 .item-button {
@@ -42,12 +43,18 @@
     font-weight: lighter;
     background-color: #227e67;
     color: white;
-    border-color: aliceblue;
+    border: none; 
     border-radius: 8px;
-    padding: 1vb;
-    width: 100px;
-    height: 35px;
-    margin-top: 1vh; 
+    padding: 0.5vh 1vw;
+    min-width: 8vw; 
+    height: 4vh;
+    margin: 1vh auto 0 auto; 
+    text-align: center;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    white-space: nowrap; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .item-price{
@@ -57,18 +64,6 @@
 }
 
 .items:hover {
-    /* width: 220px;
-    height: 280px;
-    border: 1px  #bdbbbb;
-    border-radius: 3vb;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    background-color: #dbebe0;
-    padding: 10px;
-    margin: 3vh;
-    margin-top: 5vh;
-    flex-direction: column;
-    justify-content: space-between;
-    display: flex; */
     transform: scale(1.1); 
 }
 

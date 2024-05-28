@@ -4,11 +4,16 @@ import './Root.css'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
+import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
+import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
+import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 export default function Root() {
 
   const [isCustomerView, setIsCustomerView] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const[orders, setOrders] = useState([]);
+  const[isAdminView, setIsAdminView] = useState(false);
 
     return (
       <>
@@ -41,18 +46,46 @@ export default function Root() {
                 </li>
               )}
 
+              {isAdminView && (
+                 <li>
+                  <Link to={`product-listing`}> 
+                  <Inventory2OutlinedIcon/>
+                  </Link>
+                </li>
+              )}
+              {isAdminView && (
+                <li>
+                  <Link to={`confirm-order`}> 
+                  <InventoryOutlinedIcon/>
+                  </Link>
+                </li>
+              )}
+              {isAdminView && ( 
+                <li>
+                  <Link to={`sales-report`}> 
+                  <TrendingUpOutlinedIcon/>
+                  </Link>
+                </li>
+              )}
+              {isAdminView && (
+                <li>
+                  <Link to={`view-registered-users`}> 
+                  <PeopleOutlinedIcon/>
+                  </Link>
+                </li>
+              )}
+
               <li> 
                 <button className='signInButton'>
                   <Link to = {`/sign-in`}> Sign In</Link>
                 </button>
               </li>
-
             </div>
             <link></link>
           </ul>
         </nav>
         
-        <Outlet context={{ setIsCustomerView, setCartItems, cartItems, setOrders, orders }}/>
+        <Outlet context={{ setIsCustomerView, setIsAdminView, setCartItems, cartItems, setOrders, orders }}/>
       </>
     )
   }

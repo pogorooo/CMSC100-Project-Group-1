@@ -5,10 +5,14 @@ import mp from '../assets/marketplace.jpg';
 
 export default function SignIn() {
   const { setIsCustomerView } = useOutletContext();
-
+  const{setIsAdminView} = useOutletContext();
   function handleCustomerView  () {
     setIsCustomerView(true);
   };
+
+  function handleAdminView(){
+    setIsAdminView(true);
+  }
 
     return (
       <>
@@ -32,9 +36,8 @@ export default function SignIn() {
           </div>
           <p>Sign in Page</p>
           <button><Link to= {`/shop`} onClick={handleCustomerView}> Customer View</Link>  </button>
-          <button><Link to= {`/merchant-page`}> Admin View</Link>  </button>
+          <button><Link to= {`/product-listing`} onClick= {handleAdminView}> Admin View</Link>  </button>
         </div>
-
       </>
 
       

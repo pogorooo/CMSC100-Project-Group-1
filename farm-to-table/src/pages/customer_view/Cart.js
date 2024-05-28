@@ -1,6 +1,6 @@
 import './Cart.css';
 import { useOutletContext, useNavigate } from "react-router-dom";
-import cart from '../assets/green_cart.png';
+import cart from '../../assets/green_cart.png';
 import { useState } from 'react';
 
 // Utility function to generate unique transaction IDs
