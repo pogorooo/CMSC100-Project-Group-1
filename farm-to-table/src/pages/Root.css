@@ -6,20 +6,24 @@ ul {
     align-items: center; 
   }
   nav {
+
     background: linear-gradient(to right, #227e67, white);
     
 } 
+
   nav ul li {
     position: relative;
     z-index: 2;
     padding: 25px 20px; 
     text-decoration: none;
 
+
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     /* font-optical-sizing: auto;
     font-weight: 100; */
     font-style:normal;
     letter-spacing: 1px;
+
     
   }
 
@@ -30,6 +34,7 @@ ul {
     padding-right: 2%;
   }
    li{
+
     font-size: 2vh;
    }
    .title{
@@ -45,6 +50,7 @@ ul {
     color: white;
     text-decoration: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
