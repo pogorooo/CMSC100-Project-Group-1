@@ -12,7 +12,7 @@ export default function Root() {
           <ul>
             <li className='title'><Link to={`/`} >Farm-to-table</Link></li>   
             <div className='rightSide'>  
-              <li> <Link to ={`/about`}> About</Link></li>
+              {/* <li> <Link to ={`/about`}> About</Link></li> */}
               {/* to show the shop and shopping cart only when the user signed in (customer view) */}
               {isCustomerView && (
                 <li>

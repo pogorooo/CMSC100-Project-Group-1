@@ -21,6 +21,7 @@ import eggplant from '../assets/eggplant.png'
 import cabbage from '../assets/cabbage.png';
 
 import {useOutletContext } from "react-router-dom";
+import { useState } from 'react';
 const products = [
   { product_name: 'rice', type: 1, price: 50, product_id: 1, imgUrl: rice },
   { product_name: 'corn', type: 1, price: 80, product_id: 2, imgUrl: corn },
@@ -38,7 +39,8 @@ const products = [
 
 export default function Shop() {
   const { setCartItems} = useOutletContext();
-
+  const [sortCriteria, setSortCriteria] = useState('product_name');
+  const [sortOrder, setSortOrder] = useState('asc');
   //add the new item to the cart
   function addItem(product) {
     setCartItems((prevItems) => {
@@ -60,6 +62,29 @@ export default function Shop() {
     });
   }
   
+  const getValue = (product, criteria) => {
+    if (criteria === 'quantity') {
+      return product.quantity || 0;  // Default to 0 if quantity is not defined
+    }
+    return product[criteria];
+  };
+
+  // Sort products
+  const sortedProducts = [...products].sort((a, b) => {
+    let comparison = 0;
+    const aValue = getValue(a, sortCriteria);
+    const bValue = getValue(b, sortCriteria);
+
+    if (typeof aValue === 'string' && typeof bValue === 'string') {
+      comparison = aValue.localeCompare(bValue);
+    } else {
+      comparison = aValue - bValue;
+    }
+
+    return sortOrder === 'asc' ? comparison : -comparison;
+  });
+
+
   const slides = [
     { img: img1 },
     { img: img2 },
@@ -78,10 +103,26 @@ export default function Shop() {
       <div style={containerStyles}> {/*creates a slideshow of the image*/}
         <ImageSlider slides={slides} />
       </div>
-      <li className="products">
 
+      <div className="filter-container">
+        <label htmlFor="sortCriteria">Sort by:</label>
+        <select id="sortCriteria" value={sortCriteria} onChange={(e) => setSortCriteria(e.target.value)}>
+          <option value="name">Name</option>
+          <option value="type">Type</option>
+          <option value="price">Price</option>
+          <option value="quantity">Quantity</option>
+        </select>
+
+        <label htmlFor="sortOrder">Order:</label>
+        <select id="sortOrder" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+
+      <li className="products">
         {
-        products.map((product) => {
+        sortedProducts.map((product) => {
            return <div key = {product.product_id} className="items"> {/*created the card of products containing its details */}
            <div className='image-container'>
            <img className = "item-image"src={product.imgUrl} alt={product.product_name} /> {/*to display the image of the product */}

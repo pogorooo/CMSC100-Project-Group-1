@@ -34,6 +34,7 @@ ul {
    }
    .title{
     padding-left: 3%;
+    font-size: 5vh;
    }
   .signInButton{
     border-radius: 10px;
