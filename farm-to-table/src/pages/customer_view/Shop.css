@@ -71,5 +71,30 @@
     transform: scale(1.2); 
 }
 
+.filter-container {
+    margin: 1% 0; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+}
 
+.sort {
+    margin: 0 1%;
+    background-color: #227e67; 
+    padding: 1%; 
+    color: white;
+    border-radius: 8px; 
+}
+
+.sort select {
+    padding: 0.5vh 1vw;
+    min-width: 8vw;
+    margin-left: 0.5vw; 
+    border-radius: 8px; 
+    
+}
+
+.sort select:focus {
+    outline: none; 
+}
 
