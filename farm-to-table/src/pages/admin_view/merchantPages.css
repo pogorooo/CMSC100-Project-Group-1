@@ -70,6 +70,23 @@
     background-color: #227e67;
     color: white;
   }
+  
+.cancel-btn{
+    border: 2px solid black;
+    border-color: #d94444;
+    color: #227e67;
+    border-radius: 25px;
+    background-color: white;
+    padding: 7px 14px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  
+.cancel-btn:hover {
+    background-color: #d94444;
+    color: white;
+  }
 
 .button-bar {
   display: flex;

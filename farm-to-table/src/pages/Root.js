@@ -8,6 +8,7 @@ import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+
 export default function Root() {
 
   const [isCustomerView, setIsCustomerView] = useState(false);

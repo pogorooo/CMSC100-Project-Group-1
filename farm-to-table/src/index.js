@@ -4,10 +4,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
 
-import Root from './pages/Root';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
-import HomePage from './pages/Home';
+import Root from './pages/Root.js';
+import SignIn from './pages/SignIn.js';
+import SignUp from './pages/SignUp.js';
+import HomePage from './pages/Home.js';
 import About from './pages/About.js';
 import Shop from './pages/customer_view/Shop.js';
 import Cart from './pages/customer_view/Cart.js';
