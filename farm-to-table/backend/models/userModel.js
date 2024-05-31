@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const validator = require('validator');
 
 const Schema = mongoose.Schema;
 
+// define user schema
 const userSchema = new Schema({
   firstName: {
     type: String,
@@ -25,6 +26,11 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  role: {
+    type: String,
+    enum: ['user', 'admin'], // role can be either 'user' or 'admin'
+    default: 'user' // default role is 'user'
   }
 });
 
@@ -50,7 +56,8 @@ userSchema.statics.signup = async function(firstName, middleName, lastName, emai
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
-  const user = await this.create({ firstName, middleName, lastName, email, password: hash });
+  // create a new user with 'user' role
+  const user = await this.create({ firstName, middleName, lastName, email, password: hash, role: 'user' });
 
   return user;
 }
