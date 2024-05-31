@@ -12,11 +12,11 @@ export default function Order() {
 
   function handleChange(event, newValue) {
     setValue(newValue);
-  };
+  }
 
-  function filteredOrders (status) {
+  function filteredOrders(status) {
     return orders.filter(order => order.orderStatus === status);
-  };
+  }
 
   return (
     <>
@@ -66,10 +66,9 @@ export default function Order() {
   );
 }
 
-//  display individual order details
 function OrderDetail({ order }) {
   return (
-<Box sx={{ display: 'flex', alignItems: 'center', p: 2, border: '1px solid grey', mb: 2 }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', p: 2, border: '1px solid grey', mb: 2 }}>
       <img className="orderImg" src={order.imgUrl} alt={`Product ${order.productId}`} />
       <Box sx={{ marginLeft: 2 }}>
         <Typography>Transaction ID: {order.transactionId}</Typography>
@@ -84,7 +83,6 @@ function OrderDetail({ order }) {
   );
 }
 
-// renders the TabPanel
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 

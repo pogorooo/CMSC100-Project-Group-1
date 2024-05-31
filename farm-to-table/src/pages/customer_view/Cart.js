@@ -1,10 +1,10 @@
 import './Cart.css';
-import { useOutletContext, useNavigate } from "react-router-dom";
+import {Link, useOutletContext, useNavigate } from "react-router-dom";
 import cart from '../../assets/green_cart.png';
 import { useState } from 'react';
 
-// Utility function to generate unique transaction IDs
-const generateTransactionId = () => {
+//  to generate unique transaction IDs
+function generateTransactionId (){
   return 'TRANS_' + Math.random().toString(36).substr(2, 9).toUpperCase();
 }
 
@@ -12,20 +12,20 @@ export default function Cart() {
   const { setCartItems, cartItems, setOrders } = useOutletContext();
   const navigate = useNavigate();
 
-  const [values, setValues] = useState({
-    houseNo: '',
-    barangay: '',
-    city: '',
-    contact: ''
-  });
+  // const [values, setValues] = useState({
+  //   houseNo: '',
+  //   barangay: '',
+  //   city: '',
+  //   contact: ''
+  // });
 
-  function handleInput(event) {
-    const { name, value } = event.target;
-    setValues(prevValues => ({
-      ...prevValues,
-      [name]: value
-    }));
-  }
+  // function handleInput(event) {
+  //   const { name, value } = event.target;
+  //   setValues(prevValues => ({
+  //     ...prevValues,
+  //     [name]: value
+  //   }));
+  // }
 
   function deleteItem(index) { 
     const newCartItems = [];
@@ -54,24 +54,23 @@ export default function Cart() {
   }
   let totalPayment = totalPrice + 60;
 
-  const validateForm = () => {
-    const { houseNo, barangay, city, contact } = values;
-    if (!houseNo || !barangay || !city || !contact) {
-      alert("All fields must be filled out");
-      return false;
-    }
-    return true;
-  }
+  // const validateForm = () => {
+  //   const { houseNo, barangay, city, contact } = values;
+  //   if (!houseNo || !barangay || !city || !contact) {
+  //     alert("All fields must be filled out");
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (validateForm()) {
+  function handleSubmit() {
       // Create orders for each item in the cart
       const orders = cartItems.map(item => {
         const transactionId = generateTransactionId();
+        console.log(item.id)
         return {
           transactionId,
-          productId: item.id,
+          productId: item.product.product_id,
           orderQuantity: item.quantity,
           orderStatus: 0, // Pending
           email: 'user@example.com', // Replace with actual user email
@@ -89,7 +88,6 @@ export default function Cart() {
 
       // Navigate to orders page with order details
       navigate('/orders');
-    }
   }
 
   return (
@@ -118,37 +116,10 @@ export default function Cart() {
               ))}
             </div> 
           </div>
-          <form onSubmit={handleSubmit}>
+          
             <div className="right"> 
               <h2 className="checkoutTitle">Checkout</h2>
               <div className="checkoutDetails">
-                <div className="address">
-                  Enter Address:
-                  <div>
-                    <label>
-                      House No./ Building, Street:
-                      <input className='inputField' name="houseNo" onChange={handleInput} required />
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      Barangay:
-                      <input className='inputField' name="barangay" onChange={handleInput} required />
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      Municipality:
-                      <input className='inputField' name="city" onChange={handleInput} required />
-                    </label>
-                  </div>
-                </div>
-                <div className="contact"> 
-                  <label>
-                    Contact No.:
-                    <input className='inputField' type="text" value={values.contact} onChange={handleInput} maxLength="11" name="contact" required />
-                  </label>
-                </div>
                 <div className="checkout">
                   {cartItems.map((item) => (
                     <div className="checkoutItems" key={item.id}>
@@ -191,9 +162,11 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
-              <button type="submit" className="placeOrder">PLACE ORDER</button>  
+              <Link to={`/orders`}>
+                <button className="placeOrder" onClick={handleSubmit}>PLACE ORDER</button>
+              </Link>  
             </div>
-          </form>
+          
         </div>
       )}
     </>
