@@ -1,4 +1,5 @@
 import { Outlet, Link } from 'react-router-dom';
+
 import{useState} from 'react';
 import './Root.css'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -10,6 +11,8 @@ import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 //import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
+import logo from '../assets/Farm-to-Table-Logo.png'
+
 export default function Root() {
   const [isCustomerView, setIsCustomerView] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -20,27 +23,28 @@ export default function Root() {
       <>
         <nav>
           <ul>
-            <li className='title'><Link to={`/`} >Farm-to-table</Link></li>   
+
+            <li className='title'><Link to={`/`} ><img class="logo" src = {logo}/></Link></li>   
             <div className='rightSide'>  
               {/* to show the shop and shopping cart only when the user signed in (customer view) */}
               {isCustomerView && (
                 <li>
                   <Link to={`/shop`}> 
-                  <StorefrontIcon sx={{ fontSize: "3vh" }}/>
+                  <StorefrontIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isCustomerView && ( 
                 <li>
                   <Link  to={`/cart`}>
-                    <ShoppingCartOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                    <ShoppingCartOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isCustomerView && (
                 <li>
                   <Link to={`/orders`}> 
-                  <ShoppingBagOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <ShoppingBagOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
@@ -48,28 +52,28 @@ export default function Root() {
               {isAdminView && (
                  <li>
                   <Link to={`product-listing`}> 
-                  <Inventory2OutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <Inventory2OutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && (
                 <li>
                   <Link to={`confirm-order`}> 
-                  <InventoryOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <InventoryOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && ( 
                 <li>
                   <Link to={`sales-report`}> 
-                  <TrendingUpOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <TrendingUpOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && (
                 <li>
                   <Link to={`view-registered-users`}> 
-                  <PeopleOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <PeopleOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
