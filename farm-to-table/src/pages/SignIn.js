@@ -16,6 +16,20 @@ export default function SignIn() {
     setIsCustomerView(false);
   }
 
+  const handleSubmit=(event)=>{
+    event.preventDefault()
+    const data = new FormData(event.currentTarget);
+    const userData={
+      firstName: data.get("firstName"),
+      middleName: data.get("middleName"),
+      lastName: data.get("lastName"),
+      email: data.get("email"),
+      password: data.get("password")
+    }
+    console.log("userData, ", userData);
+  }
+    
+
     return (
       <>
 
@@ -23,15 +37,16 @@ export default function SignIn() {
           <br></br>
           <div class = "main-box">
             <div class = "sign-in-up">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <p class="title">Login here</p>
-                <input placeholder="Email"></input> <br></br>
-                <input placeholder="Password"></input> <br></br>
-                <button className="page-button">Sign in</button>
+                <input required id="email" name="email"  placeholder="Email"></input> <br></br>
+                <input required id="password" name="password" placeholder="Password"></input> <br></br>
+                <button className="page-button" type="submit">Sign in</button>
               </form>
             </div>
             <div class = "redirect">
               <p class="title">New Here?</p>
+
               <img class = "graphic" src={graphic}/>
               <button className="page-button"><Link to= {`/sign-up`}>Sign up</Link></button>
             </div>
