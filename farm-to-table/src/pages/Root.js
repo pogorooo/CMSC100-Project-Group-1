@@ -8,9 +8,9 @@ import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+//import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 export default function Root() {
-
   const [isCustomerView, setIsCustomerView] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const[orders, setOrders] = useState([]);
@@ -20,29 +20,27 @@ export default function Root() {
       <>
         <nav>
           <ul>
-
             <li className='title'><Link to={`/`} >Farm-to-table</Link></li>   
             <div className='rightSide'>  
-              {/* <li> <Link to ={`/about`}> About</Link></li> */}
               {/* to show the shop and shopping cart only when the user signed in (customer view) */}
               {isCustomerView && (
                 <li>
                   <Link to={`/shop`}> 
-                  <StorefrontIcon/>
+                  <StorefrontIcon sx={{ fontSize: "3vh" }}/>
                   </Link>
                 </li>
               )}
               {isCustomerView && ( 
                 <li>
                   <Link  to={`/cart`}>
-                    <ShoppingCartOutlinedIcon/>
+                    <ShoppingCartOutlinedIcon sx={{ fontSize: "3vh" }}/>
                   </Link>
                 </li>
               )}
               {isCustomerView && (
                 <li>
                   <Link to={`/orders`}> 
-                  <ShoppingBagOutlinedIcon/>
+                  <ShoppingBagOutlinedIcon sx={{ fontSize: "3vh" }}/>
                   </Link>
                 </li>
               )}
@@ -50,36 +48,49 @@ export default function Root() {
               {isAdminView && (
                  <li>
                   <Link to={`product-listing`}> 
-                  <Inventory2OutlinedIcon/>
+                  <Inventory2OutlinedIcon sx={{ fontSize: "3vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && (
                 <li>
                   <Link to={`confirm-order`}> 
-                  <InventoryOutlinedIcon/>
+                  <InventoryOutlinedIcon sx={{ fontSize: "3vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && ( 
                 <li>
                   <Link to={`sales-report`}> 
-                  <TrendingUpOutlinedIcon/>
+                  <TrendingUpOutlinedIcon sx={{ fontSize: "3vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && (
                 <li>
                   <Link to={`view-registered-users`}> 
-                  <PeopleOutlinedIcon/>
+                  <PeopleOutlinedIcon sx={{ fontSize: "3vh" }}/>
                   </Link>
                 </li>
               )}
 
-              <li> 
-                <button className='signInButton'>
-                  <Link to = {`/sign-in`}> Sign In</Link>
-                </button>
+              <li>
+             
+              <button className='signInButton'>
+                <Link to = {`/sign-in`}>SIGN IN</Link>
+              </button>
+                 
+
+                {/* {isAdminView || isCustomerView ? (
+                  <AccountCircleOutlinedIcon sx={{ fontSize: "3.7vh" }}/>
+                ):(
+                    <Link to = {`/sign-in`}>
+                      <button className='signInButton'>
+                       SIGN IN
+                       </button>
+                    </Link> 
+                )}  */}
+
               </li>
             </div>
             <link></link>

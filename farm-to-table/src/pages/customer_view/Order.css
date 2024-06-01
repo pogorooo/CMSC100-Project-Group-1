@@ -4,3 +4,24 @@
     object-fit: contain;
     padding: 2vw;
 }
+.img-no-order{
+    height: 15vh;
+    width: auto;
+    opacity: 30%;
+    margin-top: 3%;
+}
+
+.no-order{
+    display: flex;
+    padding: 5vh; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.pending{
+    display: flex;
+    justify-content:space-evenly;
+}
