@@ -8,8 +8,8 @@ mongoose.connect(process.env.MONGO_URI)
   .then(async () => {
     console.log('Connected to database.');
 
-    const email = 'cmsc100@example.com';
-    const password = 'Admin123!';
+    const email = 'admin100@gmail.com';
+    const password = 'admin100';
     const firstName = 'Admin';
     const middleName = '';
     const lastName = '100';
