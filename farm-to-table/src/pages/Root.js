@@ -1,4 +1,5 @@
 import { Outlet, Link } from 'react-router-dom';
+
 import{useState} from 'react';
 import './Root.css'
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -8,9 +9,13 @@ import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+
+
+//navigation
+import logo from '../assets/Farm-to-Table-Logo.png'
 
 export default function Root() {
-
   const [isCustomerView, setIsCustomerView] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const[orders, setOrders] = useState([]);
@@ -21,28 +26,27 @@ export default function Root() {
         <nav>
           <ul>
 
-            <li className='title'><Link to={`/`} >Farm-to-table</Link></li>   
+            <li className='title'><Link to={`/`} ><img class="logo" src = {logo}/></Link></li>   
             <div className='rightSide'>  
-              {/* <li> <Link to ={`/about`}> About</Link></li> */}
               {/* to show the shop and shopping cart only when the user signed in (customer view) */}
               {isCustomerView && (
                 <li>
                   <Link to={`/shop`}> 
-                  <StorefrontIcon/>
+                  <StorefrontIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isCustomerView && ( 
                 <li>
                   <Link  to={`/cart`}>
-                    <ShoppingCartOutlinedIcon/>
+                    <ShoppingCartOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isCustomerView && (
                 <li>
                   <Link to={`/orders`}> 
-                  <ShoppingBagOutlinedIcon/>
+                  <ShoppingBagOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
@@ -50,36 +54,53 @@ export default function Root() {
               {isAdminView && (
                  <li>
                   <Link to={`product-listing`}> 
-                  <Inventory2OutlinedIcon/>
+                  <Inventory2OutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && (
                 <li>
                   <Link to={`confirm-order`}> 
-                  <InventoryOutlinedIcon/>
+                  <InventoryOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && ( 
                 <li>
                   <Link to={`sales-report`}> 
-                  <TrendingUpOutlinedIcon/>
+                  <TrendingUpOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && (
                 <li>
                   <Link to={`view-registered-users`}> 
-                  <PeopleOutlinedIcon/>
+                  <PeopleOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
 
-              <li> 
-                <button className='signInButton'>
-                  <Link to = {`/sign-in`}> Sign In</Link>
-                </button>
+              <li>
+             
+              {/* <button className='signInButton'>
+                <Link to = {`/sign-in`}>SIGN IN</Link>
+              </button> */}
+                 
+
+                {isAdminView == true || isCustomerView == true ? (
+                  <Link to = {`/sign-in`}>
+                  <button className='signInButton'>
+                   LOGOUT
+                   </button>
+                </Link> 
+                ):(
+                    <Link to = {`/sign-in`}>
+                      <button className='signInButton'>
+                       SIGN IN
+                       </button>
+                    </Link> 
+                )} 
+
               </li>
             </div>
             <link></link>

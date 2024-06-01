@@ -1,32 +1,13 @@
 import './Cart.css';
-import {Link, useOutletContext, useNavigate } from "react-router-dom";
+import {Link, useOutletContext} from "react-router-dom";
 import cart from '../../assets/green_cart.png';
-import { useState } from 'react';
-
-//  to generate unique transaction IDs
-function generateTransactionId (){
-  return 'TRANS_' + Math.random().toString(36).substr(2, 9).toUpperCase();
-}
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import ClearAllOutlinedIcon from '@mui/icons-material/ClearAllOutlined';
 
 export default function Cart() {
   const { setCartItems, cartItems, setOrders } = useOutletContext();
-  const navigate = useNavigate();
 
-  // const [values, setValues] = useState({
-  //   houseNo: '',
-  //   barangay: '',
-  //   city: '',
-  //   contact: ''
-  // });
-
-  // function handleInput(event) {
-  //   const { name, value } = event.target;
-  //   setValues(prevValues => ({
-  //     ...prevValues,
-  //     [name]: value
-  //   }));
-  // }
-
+  //function for deleting/removing an item in the cart
   function deleteItem(index) { 
     const newCartItems = [];
     for (let i = 0; i < cartItems.length; i++) {
@@ -54,14 +35,11 @@ export default function Cart() {
   }
   let totalPayment = totalPrice + 60;
 
-  // const validateForm = () => {
-  //   const { houseNo, barangay, city, contact } = values;
-  //   if (!houseNo || !barangay || !city || !contact) {
-  //     alert("All fields must be filled out");
-  //     return false;
-  //   }
-  //   return true;
-  // }
+  //  to generate unique transaction IDs
+function generateTransactionId (){
+  return 'TRANS_' + Math.random().toString(36).substr(2, 9).toUpperCase();
+}
+
 
   function handleSubmit() {
       // Create orders for each item in the cart
@@ -72,7 +50,7 @@ export default function Cart() {
           transactionId,
           productId: item.product.product_id,
           orderQuantity: item.quantity,
-          orderStatus: 0, // Pending
+          orderStatus: 0,
           email: 'user@example.com', // Replace with actual user email
           dateOrdered: new Date().toLocaleDateString(),
           time: new Date().toLocaleTimeString(),
@@ -85,9 +63,11 @@ export default function Cart() {
 
       // Set the orders
       setOrders(prevOrders => [...prevOrders, ...orders]);
+  }
 
-      // Navigate to orders page with order details
-      navigate('/orders');
+  //remove all items in the cart
+  function removeAll (){
+    setCartItems([]);
   }
 
   return (
@@ -100,7 +80,11 @@ export default function Cart() {
       ) : (
         <div className="body">
           <div className="left">
+            <div className='head'>
             <h2 className="totalItems">Total No. of Items: {totalQuantity}</h2> 
+            <button className="removeAllBttn" onClick={removeAll}><ClearAllOutlinedIcon/></button>
+            </div>
+            
             <div className="itemCard">
               {cartItems.map((item, index) => (
                 <ul className="cartItem" key={item.id}>
@@ -111,12 +95,11 @@ export default function Cart() {
                     <div className="itemName">{item.product.product_name}</div>
                     <div className="quantity">({item.quantity})</div>
                   </div>
-                  <button className="remove" onClick={() => deleteItem(index)}>x</button>
+                  <button className="remove" onClick={() => deleteItem(index)}><DeleteOutlinedIcon/></button>
                 </ul>
               ))}
             </div> 
           </div>
-          
             <div className="right"> 
               <h2 className="checkoutTitle">Checkout</h2>
               <div className="checkoutDetails">
@@ -166,7 +149,6 @@ export default function Cart() {
                 <button className="placeOrder" onClick={handleSubmit}>PLACE ORDER</button>
               </Link>  
             </div>
-          
         </div>
       )}
     </>
