@@ -6,6 +6,6 @@ const authenticate=require("../middleware/authenticate.js");
 
 //check routes later
 router.get("/", authenticate, cartController.findUserCart);
-router.add("/add",authenticate,cartController.addItemToCart);
+router.put("/add",authenticate,cartController.addItemToCart);
 
 module.exports=router;

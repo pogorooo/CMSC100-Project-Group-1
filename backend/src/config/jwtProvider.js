@@ -1,4 +1,5 @@
 const jwt=require("jsonwebtoken");
+
 const SECRET_KEY="ilovewebprogramming"
 
 const generateToken=(userId)=>{

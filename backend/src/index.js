@@ -33,5 +33,6 @@ app.use("/api/order", orderRouter);
 
 const adminOrderRouter=require("./routes/adminOrder.routes.js");
 app.use("/api/admin/orders", adminOrderRouter);
+
 module.exports=app;
 
