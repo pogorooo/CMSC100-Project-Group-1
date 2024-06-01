@@ -2,6 +2,7 @@ const Cart = require("../models/cart.model");
 const CartItem =require("../models/cartItem.model");
 const Product = require("../models/product.model");
 //api for cart
+
 async function createCart(user){
     try{
         const cart=new Cart({user});
@@ -15,8 +16,8 @@ async function createCart(user){
 
 async function findUserCart(userId){
     try{
-        let cart= await Cart.findOne({user:user});
-        let cartItems= await CartItem.find({cart:cart_.id}).populate("product");
+        let cart= await Cart.findOne({user:userId});
+        let cartItems= await CartItem.find({cart:cart._id}).populate("product");
         cart.cartItems=cartItems;
         let totalPrice=0;
         let totalItem=0;
@@ -38,13 +39,20 @@ async function findUserCart(userId){
 async function addCartItem(userId,req){
     try{
         const cart= await Cart.findOne({user:userId});
-        const product= await Product.findbyId(req.productId);
+        // If no cart exists, create one
+        if (!cart) {
+            cart = await createCart(userId);
+        }
 
-        const isPresent= await CartItem.findOne({cart:cart._id,
+        const product= await Product.findById(req.productId);
+
+        const isPresent= await CartItem.findOne({
+            cart:cart._id,
             product:product._id,
             userId});
+
         if (!isPresent){
-            const CartItem=new CartItem({
+            const cartItem=new CartItem({
                 product: product._id,
                 cart:cart._id,
                 quantity:1,
@@ -52,9 +60,16 @@ async function addCartItem(userId,req){
                 userId
             })
             const createdCartItem = await cartItem.save();
-            cart.cartItem.push(createdCartItem);
+            cart.cartItems.push(createdCartItem);
             await cart.save();
-            return "Item added to Cart";
+            return "Item added to Cart!";
+        }
+        else {
+            // Item is already in cart, update quantity
+            isPresent.quantity += 1;
+            isPresent.price = isPresent.quantity * product.price;
+            await isPresent.save();
+            return "Item quantity updated in Cart!";
         }
         
     }catch(error){
