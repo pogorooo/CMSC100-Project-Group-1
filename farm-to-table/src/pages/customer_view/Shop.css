@@ -35,19 +35,27 @@
     text-align: center;
     flex-grow: 1;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10px;
 }
 
 .item-button {
-    font-family: "MoskauGrotesk-Medium";
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: lighter;
+    font-size: small;
     background-color: #227e67;
     color: white;
-    border-color: aliceblue;
+    border: none; 
     border-radius: 8px;
-    padding: 1vb;
-    width: 100px;
-    height: 35px;
-    margin-top: 1vh; 
+    padding: 0.5vh 1vw;
+    min-width: 8vw; 
+    height: 4vh;
+    margin: 1vh auto 0 auto; 
+    text-align: center;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    white-space: nowrap; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .item-price{
@@ -57,18 +65,6 @@
 }
 
 .items:hover {
-    /* width: 220px;
-    height: 280px;
-    border: 1px  #bdbbbb;
-    border-radius: 3vb;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    background-color: #dbebe0;
-    padding: 10px;
-    margin: 3vh;
-    margin-top: 5vh;
-    flex-direction: column;
-    justify-content: space-between;
-    display: flex; */
     transform: scale(1.1); 
 }
 
@@ -76,5 +72,30 @@
     transform: scale(1.2); 
 }
 
+.filter-container {
+    margin: 1% 0; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+}
 
+.sort {
+    margin: 0 1%;
+    background-color: #227e67; 
+    padding: .5%; 
+    color: white;
+    border-radius: 8px; 
+}
+
+.sort select {
+    padding: 0.5vh 1vw;
+    min-width: 8vw;
+    margin-left: 0.5vw; 
+    border-radius: 8px; 
+    
+}
+
+.sort select:focus {
+    outline: none; 
+}
 

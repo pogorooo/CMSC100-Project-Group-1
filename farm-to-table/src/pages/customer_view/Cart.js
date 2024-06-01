@@ -1,32 +1,13 @@
 import './Cart.css';
-import { useOutletContext, useNavigate } from "react-router-dom";
-import cart from '../assets/green_cart.png';
-import { useState } from 'react';
-
-// Utility function to generate unique transaction IDs
-const generateTransactionId = () => {
-  return 'TRANS_' + Math.random().toString(36).substr(2, 9).toUpperCase();
-}
+import {Link, useOutletContext} from "react-router-dom";
+import cart from '../../assets/green_cart.png';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import ClearAllOutlinedIcon from '@mui/icons-material/ClearAllOutlined';
 
 export default function Cart() {
   const { setCartItems, cartItems, setOrders } = useOutletContext();
-  const navigate = useNavigate();
 
-  const [values, setValues] = useState({
-    houseNo: '',
-    barangay: '',
-    city: '',
-    contact: ''
-  });
-
-  function handleInput(event) {
-    const { name, value } = event.target;
-    setValues(prevValues => ({
-      ...prevValues,
-      [name]: value
-    }));
-  }
-
+  //function for deleting/removing an item in the cart
   function deleteItem(index) { 
     const newCartItems = [];
     for (let i = 0; i < cartItems.length; i++) {
@@ -54,26 +35,22 @@ export default function Cart() {
   }
   let totalPayment = totalPrice + 60;
 
-  const validateForm = () => {
-    const { houseNo, barangay, city, contact } = values;
-    if (!houseNo || !barangay || !city || !contact) {
-      alert("All fields must be filled out");
-      return false;
-    }
-    return true;
-  }
+  //  to generate unique transaction IDs
+function generateTransactionId (){
+  return 'TRANS_' + Math.random().toString(36).substr(2, 9).toUpperCase();
+}
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (validateForm()) {
+
+  function handleSubmit() {
       // Create orders for each item in the cart
       const orders = cartItems.map(item => {
         const transactionId = generateTransactionId();
+        console.log(item.id)
         return {
           transactionId,
-          productId: item.id,
+          productId: item.product.product_id,
           orderQuantity: item.quantity,
-          orderStatus: 0, // Pending
+          orderStatus: 0,
           email: 'user@example.com', // Replace with actual user email
           dateOrdered: new Date().toLocaleDateString(),
           time: new Date().toLocaleTimeString(),
@@ -86,10 +63,11 @@ export default function Cart() {
 
       // Set the orders
       setOrders(prevOrders => [...prevOrders, ...orders]);
+  }
 
-      // Navigate to orders page with order details
-      navigate('/orders');
-    }
+  //remove all items in the cart
+  function removeAll (){
+    setCartItems([]);
   }
 
   return (
@@ -102,7 +80,11 @@ export default function Cart() {
       ) : (
         <div className="body">
           <div className="left">
+            <div className='head'>
             <h2 className="totalItems">Total No. of Items: {totalQuantity}</h2> 
+            <button className="removeAllBttn" onClick={removeAll}><ClearAllOutlinedIcon/></button>
+            </div>
+            
             <div className="itemCard">
               {cartItems.map((item, index) => (
                 <ul className="cartItem" key={item.id}>
@@ -113,42 +95,14 @@ export default function Cart() {
                     <div className="itemName">{item.product.product_name}</div>
                     <div className="quantity">({item.quantity})</div>
                   </div>
-                  <button className="remove" onClick={() => deleteItem(index)}>x</button>
+                  <button className="remove" onClick={() => deleteItem(index)}><DeleteOutlinedIcon/></button>
                 </ul>
               ))}
             </div> 
           </div>
-          <form onSubmit={handleSubmit}>
             <div className="right"> 
               <h2 className="checkoutTitle">Checkout</h2>
               <div className="checkoutDetails">
-                <div className="address">
-                  Enter Address:
-                  <div>
-                    <label>
-                      House No./ Building, Street:
-                      <input className='inputField' name="houseNo" onChange={handleInput} required />
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      Barangay:
-                      <input className='inputField' name="barangay" onChange={handleInput} required />
-                    </label>
-                  </div>
-                  <div>
-                    <label>
-                      Municipality:
-                      <input className='inputField' name="city" onChange={handleInput} required />
-                    </label>
-                  </div>
-                </div>
-                <div className="contact"> 
-                  <label>
-                    Contact No.:
-                    <input className='inputField' type="text" value={values.contact} onChange={handleInput} maxLength="11" name="contact" required />
-                  </label>
-                </div>
                 <div className="checkout">
                   {cartItems.map((item) => (
                     <div className="checkoutItems" key={item.id}>
@@ -191,9 +145,10 @@ export default function Cart() {
                   </div>
                 </div>
               </div>
-              <button type="submit" className="placeOrder">PLACE ORDER</button>  
+              <Link to={`/orders`}>
+                <button className="placeOrder" onClick={handleSubmit}>PLACE ORDER</button>
+              </Link>  
             </div>
-          </form>
         </div>
       )}
     </>

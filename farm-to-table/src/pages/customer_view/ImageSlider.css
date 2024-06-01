@@ -22,11 +22,12 @@
     padding: 10px;
     opacity: 0.7;
     transition:opacity 0.3s;
+    z-index: 2;
 }
 
 .dots:hover, .active {
     opacity: 1;
-    font-size: 4.3vh;
+    /* font-size: 4.3vh; */
     color:#227e67;
     transform: scale(1.4); 
 }
