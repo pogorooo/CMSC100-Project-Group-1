@@ -20,15 +20,22 @@ export default function ProductListings(){
             <div class = "title-bar">
                 <h3 class="mb-8 text-3xl font-bold">Product Listings</h3>
             </div>
-            <div class = "dropdown-bar">
-                <div class="dropdown">
+            <div class = "sort-bar">
+                {/* <div class="dropdown">
                     <button class="dropbtn">Sort by</button>
                     <div class="dropdown-content">
                         <button>Ascending</button>
                         <button>Descending</button>
                     </div>
-                </div>
-                <div class="dropdown">
+                </div> */}
+                <label htmlFor="sortCriteria" className='sort'>Sort by:</label>
+                <select>
+                    <option value="name">Name</option>
+                    <option value="type">Type</option>
+                    <option value="price">Price</option>
+                    <option value="quantity">Quantity</option>
+                </select>
+                {/* <div class="dropdown">
                 <button class="dropbtn">Sort by</button>
                     <div class="dropdown-content">
                         <button>Name</button>
@@ -36,7 +43,12 @@ export default function ProductListings(){
                         <button>Price</button>
                         <button>Quantity</button>
                     </div>
-                </div>
+                </div> */}
+                <label htmlFor="sortOrder" className='sort'>Order:</label>
+                <select>
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
             </div>
             <div class = "module-body">
                 <div class="flex flex-col overflow-x-auto">

@@ -14,13 +14,17 @@ ul {
   nav ul li {
     position: relative;
     z-index: 2;
-    padding: 25px 20px; 
+    /* padding: 25px 20px;  */
     text-decoration: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-style:normal;
     letter-spacing: 1px;
 
     
+  }
+
+  .logo{
+    height: 13vmin;
   }
 
   .rightSide {
@@ -53,6 +57,7 @@ ul {
   }
   .signInButton > * {
     color: white;
+    font-size: medium;
   }
   nav ul li a {
     text-decoration: none;

@@ -1,17 +1,19 @@
 import { Link, useOutletContext } from "react-router-dom";
 
 import './signInUpPages.css';
-import mp from '../assets/marketplace.jpg';
+import graphic from '../assets/sign-in-page-graphic.png';
 
 export default function SignIn() {
   const { setIsCustomerView } = useOutletContext();
   const{setIsAdminView} = useOutletContext();
   function handleCustomerView  () {
+    setIsAdminView(false);
     setIsCustomerView(true);
   };
 
   function handleAdminView(){
     setIsAdminView(true);
+    setIsCustomerView(false);
   }
 
   const handleSubmit=(event)=>{
@@ -44,7 +46,8 @@ export default function SignIn() {
             </div>
             <div class = "redirect">
               <p class="title">New Here?</p>
-              <img class = "mp" src={mp} alt="pic for signIn"/>
+
+              <img class = "graphic" src={graphic}/>
               <button className="page-button"><Link to= {`/sign-up`}>Sign up</Link></button>
             </div>
           </div>
