@@ -14,17 +14,17 @@ ul {
   nav ul li {
     position: relative;
     z-index: 2;
-    padding: 25px 20px; 
+    /* padding: 25px 20px;  */
     text-decoration: none;
-
-
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* font-optical-sizing: auto;
-    font-weight: 100; */
     font-style:normal;
     letter-spacing: 1px;
 
     
+  }
+
+  .logo{
+    height: 13vmin;
   }
 
   .rightSide {
@@ -39,6 +39,7 @@ ul {
    }
    .title{
     padding-left: 3%;
+    font-size: 5vmin;
    }
   .signInButton{
     border-radius: 10px;
