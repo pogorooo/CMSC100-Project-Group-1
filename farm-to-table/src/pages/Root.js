@@ -30,21 +30,21 @@ export default function Root() {
               {isCustomerView && (
                 <li>
                   <Link to={`/shop`}> 
-                  <StorefrontIcon sx={{ fontSize: "3vh" }}/>
+                  <StorefrontIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isCustomerView && ( 
                 <li>
                   <Link  to={`/cart`}>
-                    <ShoppingCartOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                    <ShoppingCartOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isCustomerView && (
                 <li>
                   <Link to={`/orders`}> 
-                  <ShoppingBagOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <ShoppingBagOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
@@ -52,28 +52,28 @@ export default function Root() {
               {isAdminView && (
                  <li>
                   <Link to={`product-listing`}> 
-                  <Inventory2OutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <Inventory2OutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && (
                 <li>
                   <Link to={`confirm-order`}> 
-                  <InventoryOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <InventoryOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && ( 
                 <li>
                   <Link to={`sales-report`}> 
-                  <TrendingUpOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <TrendingUpOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
               {isAdminView && (
                 <li>
                   <Link to={`view-registered-users`}> 
-                  <PeopleOutlinedIcon sx={{ fontSize: "3vh" }}/>
+                  <PeopleOutlinedIcon sx={{ fontSize: "4.5vh" }}/>
                   </Link>
                 </li>
               )}
