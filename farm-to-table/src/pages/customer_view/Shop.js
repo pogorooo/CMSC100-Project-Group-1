@@ -4,6 +4,7 @@ import img2 from '../../assets/img2.jpg';
 import img3 from '../../assets/img3.jpg';
 import img4 from '../../assets/img4.jpg';
 import ImageSlider from './ImageSlider';
+import Product from './Product';
 import './Shop.css';
 
 //imports of the images of the products
@@ -20,8 +21,8 @@ import tomato from '../../assets/tomato.png';
 import eggplant from '../../assets/eggplant.png'
 import cabbage from '../../assets/cabbage.png';
 
-import {useOutletContext } from "react-router-dom";
 import { useState } from 'react';
+
 const products = [
   { product_name: 'rice', type: 1, price: 50, product_id: 1, imgUrl: rice, quantity: 80 },
   { product_name: 'corn', type: 1, price: 80, product_id: 2, imgUrl: corn, quantity: 90 },
@@ -38,29 +39,11 @@ const products = [
 ];
 
 export default function Shop() {
-  const { setCartItems} = useOutletContext();
+
   const [sortCriteria, setSortCriteria] = useState('product_name');
   const [sortOrder, setSortOrder] = useState('asc');
-  //add the new item to the cart
-  function addItem(product) {
-    setCartItems((prevItems) => {
-      // Check if the product already exists in the cart
-      const existingItem = prevItems.find((item) => item.product.product_id === product.product_id);
-      if (existingItem) {
-        // If the product exists, increment its quantity and update its price in the cart
-        return prevItems.map((item) =>
-          item.product.product_id === product.product_id
-            ? { ...item, quantity: item.quantity + 1 , item_price: (item.quantity +1) * item.product.price }
-            : item
-        );
-      } else {
-        // If the product doesn't exist
-        const newItem = { product, quantity: 1, imgUrl: product.imgUrl, item_price: product.price};
-        console.log("New item:", newItem);
-        return [...prevItems, newItem];
-      }
-    });
-  }
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   
   function getValue (product, criteria) {
     if (criteria === 'quantity') {
@@ -78,6 +61,7 @@ export default function Shop() {
     //this will compare the product with the value of string like the name
     if (typeof aValue === 'string' && typeof bValue === 'string') {
       comparison = aValue.localeCompare(bValue); 
+
     } else { //this will compare the product with the value of number
       comparison = aValue - bValue;
     }
@@ -95,7 +79,7 @@ export default function Shop() {
 
   const containerStyles = {
     width: "100%",
-    height: "35vh",
+    height: "40vh",
     margin: "0 auto",
   };
 
@@ -104,7 +88,7 @@ export default function Shop() {
       <div style={containerStyles}> {/*creates a slideshow of the image*/}
         <ImageSlider slides={slides} />
       </div>
-
+            {/*filters in the shops*/}
       <div className="filter-container">
         <label htmlFor="sortCriteria" className='sort'>Sort by:</label>
         <select id="sortCriteria" value={sortCriteria} onChange={(e) => setSortCriteria(e.target.value)}>
@@ -124,20 +108,25 @@ export default function Shop() {
       <li className="products">
         {
         sortedProducts.map((product) => {
-           return <div key = {product.product_id} className="items"> {/*created the card of products containing its details */}
+           return <div key = {product.product_id} className="items" onClick={() => setSelectedProduct(product)}> {/*created the card of products containing its details */}
            <div className='image-container'>
            <img className = "item-image"src={product.imgUrl} alt={product.product_name} /> {/*to display the image of the product */}
            </div>
             <div className="item-details">
               <div>{product.product_name}</div>
-              <h4 className='item-price'> P{product.price}</h4> {/*to show the price of the item/product */}  
-              <button className= 'item-button' onClick = {()=>addItem(product)}>Add to Cart</button> {/*created the button to add to cart and  calls for the addToCart function when clicked */}
+              <button className= 'item-button' >ADD TO CART</button> {/*created the button to add to cart and  calls for the addToCart function when clicked */}
             </div>               
           </div>   
         }
-
         )}
       </li>
+      {/* will show the Product if the product is clicked */}
+      {selectedProduct && 
+        <Product 
+          product={selectedProduct} 
+          onClose={() => setSelectedProduct(null)}
+        />
+      }
     </>
   );
 }

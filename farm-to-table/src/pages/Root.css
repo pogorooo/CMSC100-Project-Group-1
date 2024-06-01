@@ -53,6 +53,7 @@ ul {
   }
   .signInButton > * {
     color: white;
+    font-size: medium;
   }
   nav ul li a {
     text-decoration: none;

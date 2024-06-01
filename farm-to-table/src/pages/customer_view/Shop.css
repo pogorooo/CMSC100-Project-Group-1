@@ -39,8 +39,9 @@
 }
 
 .item-button {
-    font-family: "MoskauGrotesk-Medium";
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: lighter;
+    font-size: small;
     background-color: #227e67;
     color: white;
     border: none; 
@@ -81,7 +82,7 @@
 .sort {
     margin: 0 1%;
     background-color: #227e67; 
-    padding: 1%; 
+    padding: .5%; 
     color: white;
     border-radius: 8px; 
 }
