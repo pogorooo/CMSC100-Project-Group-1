@@ -2,18 +2,36 @@ import { Link } from "react-router-dom";
 
 import './signInUpPages.css';
 import graphic from '../assets/sign-in-page-graphic-2.png';
+import {useDispatch, useSelector} from "react-redux";
+import { getUser, register } from "./State/Auth/Action";
+import { useEffect } from "react";
+import { store } from "./State/store";
 
 
 export default function SignUp() {
+
+  const dispatch=useDispatch();
+  const jwt=localStorage.getItem("jwt");
+  const {auth}=useSelector(store=>store)
+
+  useEffect(()=>{
+    if(jwt){
+      dispatch(getUser(jwt))
+    }
+  },[jwt,auth.jwt])
 
   //to get data
   const handleSubmit=(event)=>{
     event.preventDefault()
     const data = new FormData(event.currentTarget);
     const userData={
+      firstName: data.get("firstName"),
+      middleName: data.get("middleName"),
+      lastName: data.get("lastName"),
       email: data.get("email"),
       password: data.get("password")
     }
+    dispatch(register(userData))
     console.log("userData, ", userData);
   }
     return (

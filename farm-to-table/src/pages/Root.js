@@ -9,8 +9,10 @@ import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
-//import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
+
+//navigation
 import logo from '../assets/Farm-to-Table-Logo.png'
 
 export default function Root() {
@@ -80,20 +82,24 @@ export default function Root() {
 
               <li>
              
-              <button className='signInButton'>
+              {/* <button className='signInButton'>
                 <Link to = {`/sign-in`}>SIGN IN</Link>
-              </button>
+              </button> */}
                  
 
-                {/* {isAdminView || isCustomerView ? (
-                  <AccountCircleOutlinedIcon sx={{ fontSize: "3.7vh" }}/>
+                {isAdminView == true || isCustomerView == true ? (
+                  <Link to = {`/sign-in`}>
+                  <button className='signInButton'>
+                   LOGOUT
+                   </button>
+                </Link> 
                 ):(
                     <Link to = {`/sign-in`}>
                       <button className='signInButton'>
                        SIGN IN
                        </button>
                     </Link> 
-                )}  */}
+                )} 
 
               </li>
             </div>

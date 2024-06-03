@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
+import { store } from './pages/State/store.js';
+import { Provider } from 'react-redux';
 import Root from './pages/Root.js';
 import SignIn from './pages/SignIn.js';
 import SignUp from './pages/SignUp.js';
@@ -33,8 +35,11 @@ const router = createBrowserRouter([
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+//router provider inside provider
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />    
+    <Provider store={store}>
+    <RouterProvider router={router} />  
+    </Provider> 
   </React.StrictMode>
 )
